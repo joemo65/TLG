@@ -2479,7 +2479,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1563103625}
         m_MethodName: OpenAbilities
         m_Mode: 1
         m_Arguments:
@@ -2547,7 +2547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7641d7910c754944a2e9d7aac4613bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityPanel: {fileID: 0}
+  abilityPanel: {fileID: 1886342460}
 --- !u!4 &1563103626
 Transform:
   m_ObjectHideFlags: 0
@@ -2751,7 +2751,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1563103625}
         m_MethodName: CloseAbilities
         m_Mode: 1
         m_Arguments:
@@ -3377,7 +3377,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1886342456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ed83a0a771ff5ac4aa7930b8eea17981, type: 2}
   m_CullingMode: 0

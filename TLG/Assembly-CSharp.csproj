@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BattleUIScript.cs" />
      <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\CharacterMenuUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuUIManagerScript.cs" />
