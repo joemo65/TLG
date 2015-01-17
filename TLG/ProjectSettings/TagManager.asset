@@ -12,12 +12,12 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Foreground
-  User Layer 9: Background
-  User Layer 10: Character
+  User Layer 8: 
+  User Layer 9: Character
+  User Layer 10: Enemies
   User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 12: Foreground
+  User Layer 13: Background
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
@@ -45,11 +45,11 @@ TagManager:
     userID: 2
     uniqueID: 2961419853
     locked: 0
+  - name: Character
+    userID: 1
+    uniqueID: 1136361191
+    locked: 0
   - name: Foreground
     userID: 3
     uniqueID: 419172995
-    locked: 0
-  - name: MainCharacter
-    userID: 1
-    uniqueID: 1136361191
     locked: 0

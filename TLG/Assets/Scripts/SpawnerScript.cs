@@ -18,12 +18,20 @@ public class SpawnerScript : MonoBehaviour {
 		
 	}
 
+    //currently endless spawning.
+    //will need to update this later to confirm with rounds
+    //and different enemies.
 	void Spawn()
 	{
-		int numberOfEnemies = 10;
+        // Instantiate a random enemy.
+        int enemyIndex = Random.Range(0, enemies.Length);
+        Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
 
-		//create enemy 1
-		//Instantiate (enemies [numberOfEnemies], Transform.position, Transform.rotation);
-
+        //don't have the spawning effect implemented yet.
+        // Play the spawning effect from all of the particle systems.
+        //foreach (ParticleSystem p in GetComponentsInChildren<ParticleSystem>())
+        //{
+        //    p.Play();
+        //}
 	}
 }

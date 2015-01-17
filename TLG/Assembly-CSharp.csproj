@@ -48,7 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BattleUIScript.cs" />
      <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterMeleeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterMenuUIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterRangeScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\MoveCharacterScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
