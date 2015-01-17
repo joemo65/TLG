@@ -4,17 +4,17 @@ using System.Collections;
 public class BattleUIScript : MonoBehaviour {
     private bool paused = false;
     public Animator pausePanel;
+    public Animator talentsPanel;
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
+    #region PauseMenu
     //event handler for when the user selects the pause option
     public void OnPauseButtonClick()
     {
@@ -40,7 +40,8 @@ public class BattleUIScript : MonoBehaviour {
     private void ClosePauseMenu()
     {
         pausePanel.SetBool("isHidden", false);
-        pausePanel.enabled = false;
+        //issue causing menu to only show once.
+        //pausePanel.enabled = false;
     }
 
     //opens the pause menu
@@ -62,4 +63,19 @@ public class BattleUIScript : MonoBehaviour {
             Time.timeScale = 1;
         }
     }
+
+    //event handler for the talents button in the options menu.
+    public void OnTalentsButtonClick()
+    {
+        talentsPanel.enabled = true;
+        talentsPanel.SetBool("isHidden", true);
+    }
+#endregion
+    #region TalentMenu
+    //closes the talents menu
+    public void OnTalentsXButtonClick()
+    {
+        talentsPanel.SetBool("isHidden", false);
+    }
+    #endregion
 }
