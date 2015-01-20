@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: helmet1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: MainCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -46,7 +46,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200004}
-  m_Layer: 10
+  - 60: {fileID: 6000000}
+  - 114: {fileID: 11400004}
+  m_Layer: 9
   m_Name: sword1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -62,7 +64,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: main_character_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +80,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200008}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: main_character_offhand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +96,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: main_character_torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +112,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: main_character_right_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +128,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: main_character_left_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +144,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: main_character_mainhand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.2299995, z: 0}
+  m_LocalPosition: {x: 0, y: 3.70000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -188,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -.0199999809, z: 0}
+  m_LocalPosition: {x: 1.5, y: -.0199999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -280,6 +282,56 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!60 &6000000
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Poly:
+    m_Paths:
+    - - {x: -.460000008, y: -.845000029}
+      - {x: -.289999992, y: -.654999971}
+      - {x: -.180000007, y: -.785000026}
+      - {x: -.129999995, y: -.785000026}
+      - {x: 0, y: -.654999971}
+      - {x: .00999999978, y: -.61500001}
+      - {x: -.150000006, y: -.495000005}
+      - {x: .419999987, y: .0850000009}
+      - {x: .439999998, y: .0850000009}
+      - {x: .449999988, y: .104999997}
+      - {x: 1.05999994, y: .725000024}
+      - {x: 1.09000003, y: .875}
+      - {x: 1.09000003, y: 1.15499997}
+      - {x: .959999979, y: 1.15499997}
+      - {x: .639999986, y: 1.04499996}
+      - {x: .610000014, y: 1.01499999}
+      - {x: -.379999995, y: -.155000001}
+      - {x: -.469999999, y: -.264999986}
+      - {x: -.49000001, y: -.215000004}
+      - {x: -.660000026, y: -.104999997}
+      - {x: -.810000002, y: -.275000006}
+      - {x: -.800000012, y: -.314999998}
+      - {x: -.709999979, y: -.375}
+      - {x: -.600000024, y: -.425000012}
+      - {x: -.699999988, y: -.524999976}
+      - {x: -.870000005, y: -.725000024}
+      - {x: -.959999979, y: -.654999971}
+      - {x: -1.00999999, y: -.63499999}
+      - {x: -1.09000003, y: -.735000014}
+      - {x: -1.09000003, y: -.805000007}
+      - {x: -1.01999998, y: -.86500001}
+      - {x: -1.04999995, y: -.964999974}
+      - {x: -.829999983, y: -1.15499997}
+      - {x: -.720000029, y: -1.11500001}
+      - {x: -.660000026, y: -1.15499997}
+      - {x: -.569999993, y: -1.15499997}
+      - {x: -.49000001, y: -1.10500002}
+      - {x: -.469999999, y: -1.03499997}
+      - {x: -.579999983, y: -.954999983}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -333,6 +385,17 @@ MonoBehaviour:
   moveForce: 365
   maxSpeed: 5
   jumpForce: 1000
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630fd19305a90764f9e14ace7dd71ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

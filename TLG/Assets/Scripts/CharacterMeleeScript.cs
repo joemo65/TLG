@@ -10,7 +10,6 @@ public class CharacterMeleeScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 
     void Awake()
@@ -20,12 +19,11 @@ public class CharacterMeleeScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
         //if they press the melee button
         if (Input.GetButtonDown("Fire1"))
         {
             meleeAnimation.SetTrigger("Melee");
         }
 	}
-
-
 }
