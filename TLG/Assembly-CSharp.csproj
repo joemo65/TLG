@@ -51,10 +51,12 @@
      <Compile Include="Assets\Scripts\CharacterMeleeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterMenuUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\CharacterRangeScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\MeleeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\MoveCharacterScript.cs" />
+     <Compile Include="Assets\Scripts\RangeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
  <Reference Include="UnityEngine.UI">

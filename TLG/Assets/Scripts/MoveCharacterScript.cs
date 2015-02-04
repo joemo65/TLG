@@ -16,22 +16,30 @@ public class MoveCharacterScript : MonoBehaviour {
 	
 	void FixedUpdate ()
 	{
-        if (Input.GetTouch(0).phase == TouchPhase.Stationary)
+        try
         {
-            Vector3 touchPosition = Input.GetTouch(0).position;
 
-            //if they touched the the right of the screen 
-            if (touchPosition.x > Screen.width / 2)
+            if (Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
-                transform.Translate(Vector3.right * 10 * Time.deltaTime);
+                Vector3 touchPosition = Input.GetTouch(0).position;
+
+                //if they touched the the right of the screen 
+                if (touchPosition.x > Screen.width / 2)
+                {
+                    transform.Translate(Vector3.right * 10 * Time.deltaTime);
+                }
+                else if (touchPosition.x < Screen.width / 2)
+                {
+                    transform.Translate(Vector3.left * 10 * Time.deltaTime);
+                }
+
+                CheckAndFlip(touchPosition);
             }
-            else if (touchPosition.x < Screen.width / 2)
-            {
-                transform.Translate(Vector3.left * 10 * Time.deltaTime);
-            } 
-            
-            CheckAndFlip(touchPosition);
-        }       
+        }
+        catch(UnityException e)
+        {
+            //do nothing
+        }
 	}
 	
 	

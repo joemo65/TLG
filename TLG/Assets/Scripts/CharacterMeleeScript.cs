@@ -15,15 +15,19 @@ public class CharacterMeleeScript : MonoBehaviour {
     void Awake()
     {
         meleeAnimation = transform.root.gameObject.GetComponent<Animator>();
+        meleeAnimation.SetTrigger("Melee"); //when the game starts, ready the melee weapon.
     }
 
 	// Update is called once per frame
 	void Update () {
-
-        //if they press the melee button
-        if (Input.GetButtonDown("Fire1"))
-        {
-            meleeAnimation.SetTrigger("Melee");
-        }
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+           meleeAnimation.SetTrigger("Melee");
+           meleeAnimation.SetTrigger("Melee");
+        }
+    }   
 }

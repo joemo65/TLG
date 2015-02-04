@@ -7,7 +7,8 @@ public class EnemyScript : MonoBehaviour {
     public float HP = 1;
     private SpriteRenderer healthBar;   //reference to the sprite health bar display
     private Vector3 healthScale;        //a local scale of the health bar.
-    private 
+
+
 	// Use this for initialization
 	void Start () {
         //HP = stats.Stamina * 10;

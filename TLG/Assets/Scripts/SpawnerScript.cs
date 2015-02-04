@@ -25,7 +25,7 @@ public class SpawnerScript : MonoBehaviour {
 	{
         // Instantiate a random enemy.
         int enemyIndex = Random.Range(0, enemies.Length);
-        Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
+        //Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
 
         //don't have the spawning effect implemented yet.
         // Play the spawning effect from all of the particle systems.
