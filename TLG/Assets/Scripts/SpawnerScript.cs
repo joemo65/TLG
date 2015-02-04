@@ -5,7 +5,7 @@ public class SpawnerScript : MonoBehaviour {
 
 	public float spawnTime = 5f;		// The amount of time between each spawn.
 	public float spawnDelay = 3f;		// The amount of time before spawning starts.
-	public GameObject[] enemies;		// Array of enemies.
+	public GameObject enemy;		    //enemy to spawn
 
 	// Use this for initialization
 	void Start () {
@@ -21,17 +21,10 @@ public class SpawnerScript : MonoBehaviour {
     //currently endless spawning.
     //will need to update this later to confirm with rounds
     //and different enemies.
-	void Spawn()
+	private void Spawn()
 	{
         // Instantiate a random enemy.
-        int enemyIndex = Random.Range(0, enemies.Length);
-        //Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
-
-        //don't have the spawning effect implemented yet.
-        // Play the spawning effect from all of the particle systems.
-        //foreach (ParticleSystem p in GetComponentsInChildren<ParticleSystem>())
-        //{
-        //    p.Play();
-        //}
+        //int enemyIndex = Random.Range(0, enemies.Length);
+        Instantiate(enemy, transform.position, transform.rotation);
 	}
 }

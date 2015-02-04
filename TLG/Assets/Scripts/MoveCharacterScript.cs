@@ -4,10 +4,13 @@ using System.Collections;
 public class MoveCharacterScript : MonoBehaviour {
 
 	[HideInInspector]
-	public bool facingRight = true;			// For determining which way the player is currently facing.	
-	
-	public float moveForce = 5f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+	public bool facingRight = true;			        // For determining which way the player is currently facing.
+
+	public float moveForce = 5f;			        // Amount of force added to move the player left and right.
+	public float maxSpeed = 5f;				        // The fastest the player can travel in the x axis.
+
+    
+
 
 	void Update()
 	{

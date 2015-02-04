@@ -19,29 +19,33 @@ public class CharacterScript : MonoBehaviour {
     {
         moveCharacter = transform.root.GetComponent<MoveCharacterScript>();
     }
+
 	// Update is called once per frame
 	void Update ()
     {
         if (rangeWeaponInstance == null)
         {
-            //check to see if they press double tap
-            if (Input.GetTouch(0).tapCount == 2)
+            if (Input.touchCount > 0)
             {
-
-                if (moveCharacter.facingRight)
+                //check to see if they press double tap
+                if (Input.GetTouch(0).tapCount == 2)
                 {
-                    //create a new instance of the range weapon
-                    rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                    //shoot it right
-                    rangeWeaponInstance.AddForce(new Vector2(speed, 0));
 
-                }
-                else
-                {
-                    //create a new instance of the range weapon
-                    rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                    //shoot it left
-                    rangeWeaponInstance.AddForce(new Vector2(-speed, 0));
+                    if (moveCharacter.facingRight)
+                    {
+                        //create a new instance of the range weapon
+                        rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                        //shoot it right
+                        rangeWeaponInstance.AddForce(new Vector2(speed, 0));
+
+                    }
+                    else
+                    {
+                        //create a new instance of the range weapon
+                        rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                        //shoot it left
+                        rangeWeaponInstance.AddForce(new Vector2(-speed, 0));
+                    }
                 }
             }
         }
