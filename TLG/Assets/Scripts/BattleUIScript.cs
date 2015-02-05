@@ -1,17 +1,31 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BattleUIScript : MonoBehaviour {
-    private bool paused = false;
+   
     public Animator pausePanel;
     public Animator talentsPanel;
 
+    private bool paused = false;
+    private ScoreManagerScript scoreReference;      //reference to the score manager script.
+    private Text textReference;                     //reference to the score UI text.
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
+        scoreReference = GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>();    //set the reference to the scoreManager's script.
+        textReference = GetComponent<Text>();   //set the reference to the Score Number text.
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+        if (textReference != null)
+        {
+            //update the score number
+            textReference.text = scoreReference.TotalScore.ToString();
+        }
 	}
 
     #region PauseMenu

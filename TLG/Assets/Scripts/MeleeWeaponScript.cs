@@ -17,8 +17,8 @@ public class MeleeWeaponScript : MonoBehaviour {
     {
         if (col.tag == "Enemy")
         {
-            Destroy(col.gameObject);
-            //col.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
+            //Destroy(col.gameObject);
+            col.gameObject.GetComponent<EnemyScript>().TakeDamage(1);
         }
     }
 }

@@ -5,21 +5,25 @@ public class EnemyScript : MonoBehaviour{
 
     public float HP = 1;
     public float moveSpeed = 5f;
-    
+    public float score = 100;                   //how much points this enemy unit is worth.
+
     private GameObject playerReference;
     private Stats stats = new Stats();
-    private SpriteRenderer healthBar;   //reference to the sprite health bar display
-    private Vector3 healthScale;        //a local scale of the health bar.
+    private SpriteRenderer healthBar;           //reference to the sprite health bar display
+    private Vector3 healthScale;                //a local scale of the health bar.
+    private ScoreManagerScript scoreReference;  //reference to the score Manager
+    private float startPosition;                //get the start position for movement logic
 
-	// Use this for initialization
 	void Start () 
     {
         playerReference = GameObject.FindGameObjectWithTag("Player");
+        scoreReference = GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>();
         //HP = stats.Stamina * 10;
 	}
 
     void Awake()
     {
+        startPosition = transform.position.x;
     }
 
 	// Update is called once per frame
@@ -38,10 +42,14 @@ public class EnemyScript : MonoBehaviour{
 
     void FixedUpdate()
     {
+        //update the health of the enemy unit
+        if (HP < 1)
+        {
+            Death();    
+        }
 
         //move towards the player   
-        //transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        if(transform.position.x < 0 )
+        if(startPosition < 0 )
         {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
             //rigidbody2D.velocity = new Vector2(-transform.localScale.x * moveSpeed, rigidbody2D.velocity.y);	
@@ -51,7 +59,6 @@ public class EnemyScript : MonoBehaviour{
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
             //rigidbody2D.velocity = new Vector2(transform.localScale.x * moveSpeed, rigidbody2D.velocity.y);
         }
-            
     }
 
     private void Flip()
@@ -65,7 +72,8 @@ public class EnemyScript : MonoBehaviour{
     //reduce health base on damage
     public void TakeDamage(float dmg = 0)
     {
-        HP--;// dmg;
+        HP -= dmg;
+
         if(HP < 1)
         {
             Death();
@@ -76,7 +84,8 @@ public class EnemyScript : MonoBehaviour{
 
     public void Death()
     {
-        Destroy(gameObject);
+        scoreReference.CalculateTotalScore(score);  //give the score manager the score of the enemy
+        Destroy(gameObject);    //destroy the object
     }
 
     public void UpdateHealthBar()

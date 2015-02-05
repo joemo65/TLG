@@ -19,8 +19,8 @@ public class RangeWeaponScript : MonoBehaviour {
     {
         if(col.gameObject.tag == "Enemy")
         {
-            Destroy(col.gameObject);
-            DestroyObject(gameObject);
+            //Destroy(col.gameObject);
+            col.gameObject.GetComponent<EnemyScript>().TakeDamage(5);
         }
     }
 }

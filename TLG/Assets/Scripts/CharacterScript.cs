@@ -34,7 +34,7 @@ public class CharacterScript : MonoBehaviour {
                     if (moveCharacter.facingRight)
                     {
                         //create a new instance of the range weapon
-                        rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                        rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(0, 0, 0)) as Rigidbody2D;
                         //shoot it right
                         rangeWeaponInstance.AddForce(new Vector2(speed, 0));
 
@@ -42,7 +42,7 @@ public class CharacterScript : MonoBehaviour {
                     else
                     {
                         //create a new instance of the range weapon
-                        rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                        rangeWeaponInstance = Instantiate(rangeWeapon, transform.position, Quaternion.Euler(0, 0, 180f)) as Rigidbody2D;
                         //shoot it left
                         rangeWeaponInstance.AddForce(new Vector2(-speed, 0));
                     }
