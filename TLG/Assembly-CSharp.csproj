@@ -49,9 +49,9 @@
      <Compile Include="Assets\Scripts\BattleUIScript.cs" />
      <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\CharacterMeleeScript.cs" />
-     <Compile Include="Assets\Scripts\CharacterMenuUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\CharacterRangeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\EnemyManagerScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuUIManagerScript.cs" />

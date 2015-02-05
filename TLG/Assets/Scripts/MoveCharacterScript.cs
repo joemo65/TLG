@@ -21,22 +21,24 @@ public class MoveCharacterScript : MonoBehaviour {
 	{
         try
         {
-
-            if (Input.GetTouch(0).phase == TouchPhase.Stationary)
+            if (Input.touchCount == 1)
             {
-                Vector3 touchPosition = Input.GetTouch(0).position;
-
-                //if they touched the the right of the screen 
-                if (touchPosition.x > Screen.width / 2)
+                if (Input.GetTouch(0).phase == TouchPhase.Stationary)
                 {
-                    transform.Translate(Vector3.right * 10 * Time.deltaTime);
-                }
-                else if (touchPosition.x < Screen.width / 2)
-                {
-                    transform.Translate(Vector3.left * 10 * Time.deltaTime);
-                }
+                    Vector3 touchPosition = Input.GetTouch(0).position;
 
-                CheckAndFlip(touchPosition);
+                    //if they touched the the right of the screen 
+                    if (touchPosition.x > Screen.width / 2)
+                    {
+                        transform.Translate(Vector3.right * 10 * Time.deltaTime);
+                    }
+                    else if (touchPosition.x < Screen.width / 2)
+                    {
+                        transform.Translate(Vector3.left * 10 * Time.deltaTime);
+                    }
+
+                    CheckAndFlip(touchPosition);
+                }
             }
         }
         catch(UnityException e)
