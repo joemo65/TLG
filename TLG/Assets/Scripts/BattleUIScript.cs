@@ -4,9 +4,11 @@ using System.Collections;
 
 public class BattleUIScript : MonoBehaviour {
    
-    public Animator pausePanel;
-    public Animator talentsPanel;
+    //public Animator pausePanel;
+    //public Animator talentsPanel;
 
+    private GameObject optionsPanel;
+    private GameObject talentsPanel;
     private bool paused = false;
     private ScoreManagerScript scoreReference;      //reference to the score manager script.
     private Text textReference;                     //reference to the score UI text.
@@ -16,6 +18,8 @@ public class BattleUIScript : MonoBehaviour {
     {
         scoreReference = GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>();    //set the reference to the scoreManager's script.
         textReference = GetComponent<Text>();   //set the reference to the Score Number text.
+        optionsPanel = GameObject.Find("OptionsMenuCanvas");
+        talentsPanel = GameObject.Find("TalentsMenuCanvas");
 	}
 	
 	// Update is called once per frame
@@ -53,16 +57,18 @@ public class BattleUIScript : MonoBehaviour {
 
     private void ClosePauseMenu()
     {
-        pausePanel.SetBool("isHidden", false);
+        //pausePanel.SetBool("isHidden", false);
         //issue causing menu to only show once.
         //pausePanel.enabled = false;
+        optionsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(800, 0, 10);
     }
 
     //opens the pause menu
     private void OpenPauseMenu()
     {
-        pausePanel.enabled = true;
-        pausePanel.SetBool("isHidden", true);
+        optionsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);
+        //pausePanel.enabled = true;
+        //pausePanel.SetBool("isHidden", true);
     }
 
     //pauses the game by starting or stopping game time dependant upon the bool paused.
@@ -77,19 +83,23 @@ public class BattleUIScript : MonoBehaviour {
             Time.timeScale = 1;
         }
     }
+#endregion
 
+#region TalentMenu
     //event handler for the talents button in the options menu.
     public void OnTalentsButtonClick()
     {
-        talentsPanel.enabled = true;
-        talentsPanel.SetBool("isHidden", true);
+        talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);
+        //talentsPanel.enabled = true;
+        //talentsPanel.SetBool("isHidden", true);
     }
-#endregion
-    #region TalentMenu
+
+   
     //closes the talents menu
     public void OnTalentsXButtonClick()
     {
-        talentsPanel.SetBool("isHidden", false);
+        talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(-900, 0, 10);
+        //talentsPanel.SetBool("isHidden", false);
     }
     #endregion
 }
