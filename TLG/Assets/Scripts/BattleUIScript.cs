@@ -60,7 +60,7 @@ public class BattleUIScript : MonoBehaviour {
         //pausePanel.SetBool("isHidden", false);
         //issue causing menu to only show once.
         //pausePanel.enabled = false;
-        optionsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(800, 0, 10);
+        optionsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(-900, 0, 10);
     }
 
     //opens the pause menu
@@ -98,7 +98,7 @@ public class BattleUIScript : MonoBehaviour {
     //closes the talents menu
     public void OnTalentsXButtonClick()
     {
-        talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(-900, 0, 10);
+        talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(900, 0, 10);
         //talentsPanel.SetBool("isHidden", false);
     }
     #endregion

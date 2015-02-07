@@ -62,6 +62,6 @@ public class CameraFollowScript : MonoBehaviour {
 		targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
 		
 		// Set the camera's position to the target position with the same z component.
-		transform.position = new Vector3(targetX, targetY+.5f, transform.position.z);
+		transform.position = new Vector3(targetX, targetY+1.5f, transform.position.z);
 	}
 }
