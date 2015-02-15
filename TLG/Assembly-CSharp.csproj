@@ -46,9 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\CharacterManagerScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterMeleeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterRangeScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\CharacterScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\MeleeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\MoveCharacterScript.cs" />
@@ -60,7 +62,6 @@
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\UIScripts\BattleUIScript.cs" />
-     <Compile Include="Assets\Scripts\UIScripts\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\UIScripts\CharacterUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\UIScripts\MainMenuUIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">

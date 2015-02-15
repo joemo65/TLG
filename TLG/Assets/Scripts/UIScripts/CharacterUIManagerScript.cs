@@ -11,10 +11,16 @@ public class CharacterUIManagerScript : MonoBehaviour
     private Text currentEquipmentText;      //reference to the current equipment's name
     private ArrayList equipmentList;        //contains the list of equipment that is passed.
     private int currentElement;             //to keep track of the current element.
+    private GameObject current;             //the current equipment to be selected.
+    private GameObject characterManager;    //reference to the character manager to update the character's current options
+    private GameObject statPanel;          //reference to the stats panel
+
     // Use this for initialization
     void Start()
     {
-        equipmentPanel = GameObject.Find("EquipmentPanel");     //set reference to the equipment panel
+        characterManager = GameObject.Find("CharacterManager");      //set reference to the Character Manager object.
+        equipmentPanel = GameObject.Find("EquipmentPanel");             //set reference to the equipment panel
+        statPanel = GameObject.Find("StatPanel");                       //set reference to the stat panel
 
         //go through all the Texts on the panel
         foreach (Text txt in equipmentPanel.GetComponentsInChildren<Text>())
@@ -39,6 +45,7 @@ public class CharacterUIManagerScript : MonoBehaviour
             }
         }
     }
+
     #region Open
     public void OpenMeleeWeapons()
     {
@@ -115,23 +122,41 @@ public class CharacterUIManagerScript : MonoBehaviour
         }
     }
     #endregion
+    #region Accept
+    public void Accept()
+    {
+        print(characterManager.GetComponent<CharacterManagerScript>());
+        if (current != null)
+        {
+            if (equipmentType.text == "Melee")
+                characterManager.GetComponent<CharacterManagerScript>().SetMeleeWeapon(current);
+            else if (equipmentType.text == "Range")
+                characterManager.GetComponent<CharacterManagerScript>().SetRangeWeapon(current);
+            else if (equipmentType.text == "Offensive")
+                characterManager.GetComponent<CharacterManagerScript>().SetOffensiveAbility(current);
+            else if (equipmentType.text == "Defensive")
+                characterManager.GetComponent<CharacterManagerScript>().SetDefensiveAbility(current);
+        }
 
+        UpdateStats();
+
+        ClosePanel();
+    }
+    #endregion
     #region Close
     public void ClosePanel()
     {
-        //update to the character.
-        //
-        currentElement = 0; //reset current
         equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(800, 0, 10);    //move the panel off the screen.
     }
     #endregion
+
     private void SetCurrentImage(int currentElement = 0)
     {
         //if the list isn't empty
         if (equipmentList != null)
         {
-            //create a local reference to the element of the list
-            GameObject current = (GameObject)equipmentList[currentElement];
+            //set the local reference to the element of the list
+            current = (GameObject)equipmentList[currentElement];
 
             //set the image to current's image
             currentEquipmentImage.texture = current.GetComponent<SpriteRenderer>().sprite.texture;
@@ -148,8 +173,8 @@ public class CharacterUIManagerScript : MonoBehaviour
         //if the list isn't empty
         if (equipmentList != null)
         {
-            //create a local reference to the current element in the list
-            GameObject current = (GameObject)equipmentList[currentElement];
+            //set local reference to the current element in the list
+             current = (GameObject)equipmentList[currentElement];
 
             //update the text to be the same as the element's name
             currentEquipmentText.text = current.name;
@@ -161,6 +186,29 @@ public class CharacterUIManagerScript : MonoBehaviour
         }
     }
 
+    private void UpdateStats()
+    {
+        Stats stats = characterManager.GetComponent<CharacterManagerScript>().GetCharacterStats();  //get a local reference to the characters stats
+
+        //go through each of the stats and update them.
+        foreach (Text txt in statPanel.GetComponentsInChildren<Text>())
+        {
+            if (txt.name == "StrengthStatText")
+                txt.text = stats.Strength.ToString();
+            else if (txt.name == "SpeedStatText")
+                txt.text = stats.Speed.ToString();
+            else if (txt.name == "DexterityStatText")
+                txt.text = stats.Dexterity.ToString();
+            else if (txt.name == "StaminaStatText")
+                txt.text = stats.Stamina.ToString();
+            else if (txt.name == "IntellectStatText")
+                txt.text = stats.Intellect.ToString();
+            else if (txt.name == "RecoveryStatText")
+                txt.text = stats.Recovery.ToString();
+            else if (txt.name == "ReflexStatText")
+                txt.text = stats.Reflex.ToString();
+        }
+    }
     public void StartBattle()
     {
         //update the prefab of the main character that will be used in the battle scene.
