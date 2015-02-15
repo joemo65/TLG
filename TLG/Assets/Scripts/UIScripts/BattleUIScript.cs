@@ -7,6 +7,7 @@ public class BattleUIScript : MonoBehaviour {
     //public Animator pausePanel;
     //public Animator talentsPanel;
 
+    private GameObject GameManager;
     private GameObject optionsPanel;
     private GameObject talentsPanel;
     private bool paused = false;
@@ -17,6 +18,8 @@ public class BattleUIScript : MonoBehaviour {
 	void Start () 
     {
         scoreReference = GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>();    //set the reference to the scoreManager's script.
+        ///
+        ///update this text reference. see CharacterUIManagerScript
         textReference = GetComponent<Text>();   //set the reference to the Score Number text.
         optionsPanel = GameObject.Find("OptionsMenuCanvas");
         talentsPanel = GameObject.Find("TalentsMenuCanvas");
@@ -85,7 +88,7 @@ public class BattleUIScript : MonoBehaviour {
     }
 #endregion
 
-#region TalentMenu
+    #region TalentMenu
     //event handler for the talents button in the options menu.
     public void OnTalentsButtonClick()
     {
@@ -101,5 +104,12 @@ public class BattleUIScript : MonoBehaviour {
         talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(900, 0, 10);
         //talentsPanel.SetBool("isHidden", false);
     }
+    #endregion
+    
+    #region SpecialAbilityOne
+
+    #endregion
+
+    #region SpecialAbilityTwo
     #endregion
 }

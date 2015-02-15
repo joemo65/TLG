@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterScript : MonoBehaviour {
+public class CharacterRanngeScript : MonoBehaviour
+{
 
     public Transform rangeWeapon;
     public float speed = 20f;
@@ -10,18 +11,19 @@ public class CharacterScript : MonoBehaviour {
     private Stats baseStats = new Stats();
     private MoveCharacterScript moveCharacter;  //reference to the move character script to get the facing direction.
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-	}
+    }
 
     void Awake()
     {
         moveCharacter = transform.root.GetComponent<MoveCharacterScript>();
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         if (rangeWeaponInstance == null)
         {
@@ -49,5 +51,5 @@ public class CharacterScript : MonoBehaviour {
                 }
             }
         }
-	}
+    }
 }

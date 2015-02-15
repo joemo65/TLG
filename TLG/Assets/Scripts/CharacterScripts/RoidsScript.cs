@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterRangeScript : MonoBehaviour {
+public class RoidsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

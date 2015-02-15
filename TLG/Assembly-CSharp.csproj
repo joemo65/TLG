@@ -46,21 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BattleUIScript.cs" />
-     <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
-     <Compile Include="Assets\Scripts\CharacterMeleeScript.cs" />
-     <Compile Include="Assets\Scripts\CharacterRangeScript.cs" />
-     <Compile Include="Assets\Scripts\CharacterScript.cs" />
-     <Compile Include="Assets\Scripts\CharacterUIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterManagerScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\CharacterMeleeScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\CharacterRangeScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\EnemyScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\MeleeWeaponScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\MoveCharacterScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\RangeWeaponScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\RoidsScript.cs" />
      <Compile Include="Assets\Scripts\EnemyManagerScript.cs" />
-     <Compile Include="Assets\Scripts\EnemyScript.cs" />
-     <Compile Include="Assets\Scripts\MainMenuUIManagerScript.cs" />
-     <Compile Include="Assets\Scripts\MeleeWeaponScript.cs" />
-     <Compile Include="Assets\Scripts\MoveCharacterScript.cs" />
-     <Compile Include="Assets\Scripts\RangeWeaponScript.cs" />
+     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
+     <Compile Include="Assets\Scripts\UIScripts\BattleUIScript.cs" />
+     <Compile Include="Assets\Scripts\UIScripts\CameraFollowScript.cs" />
+     <Compile Include="Assets\Scripts\UIScripts\CharacterUIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\UIScripts\MainMenuUIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

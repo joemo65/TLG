@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 220.266235, y: 133.714066, z: .504730225}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a75e015f58973e4db1958a0a3d3fe8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterManager: {fileID: 0}
+  meleeWeapon0: {fileID: 100000, guid: d2a1404e4de1f5144b4411a38d0d8db7, type: 2}
+  meleeWeapon1: {fileID: 0}
+  meleeWeapon2: {fileID: 0}
+  meleeWeapon3: {fileID: 0}
+  rangeWeapon0: {fileID: 100000, guid: 8db061dff18b4e448b11d2ed023cdec1, type: 2}
+  rangeWeapon1: {fileID: 0}
+  rangeWeapon2: {fileID: 0}
+  rangeWeapon3: {fileID: 0}
+  offensiveAbility0: {fileID: 100000, guid: 86dc4794504eaf44895efec02ae33928, type: 2}
+  offensiveAbility1: {fileID: 100000, guid: d26888c1d0a407a42a9b5cf04a45d752, type: 2}
+  offensiveAbility2: {fileID: 0}
+  offensiveAbility3: {fileID: 0}
+  defensiveAbility0: {fileID: 100000, guid: 8788effcbac14964988d5bd751dfdcd2, type: 2}
+  defensiveAbility1: {fileID: 0}
+  defensiveAbility2: {fileID: 0}
+  defensiveAbility3: {fileID: 0}
+  talent0: {fileID: 0}
+  talent1: {fileID: 0}
+  talent2: {fileID: 0}
+  talent3: {fileID: 0}
+  talent4: {fileID: 0}
+  talent5: {fileID: 0}
+  talent6: {fileID: 0}
+  talent7: {fileID: 0}
+  talent8: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
