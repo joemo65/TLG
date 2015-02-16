@@ -1,23 +1,23 @@
 ﻿
 public class Stats
-{
-    private float stamina;
+{ 
     private float strength;
     private float speed;
     private float dexterity;
+    private float stamina;
     private float intellect;
     private float recovery;
     private float reflex;
 
-    public Stats()
+    public Stats(float str = 0, float spd = 0, float dex = 0, float stm = 0, float intl = 0, float rec = 0, float refl = 0)
     {
-        Stamina = 1;
-        Strength = 1;
-        Speed = 1;
-        Dexterity = 1;
-        Intellect = 1;
-        Recovery = 1;
-        Reflex = 1;
+        Strength = str;
+        Speed = spd;
+        Dexterity = dex;
+        Stamina = stm;
+        Intellect = intl;
+        Recovery = rec;
+        Reflex = refl;
     }
 
     public float Stamina

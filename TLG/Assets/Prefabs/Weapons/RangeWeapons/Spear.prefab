@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 9
   m_Name: Spear
-  m_TagString: Player
+  m_TagString: RangeWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +68,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d4524e15da405c48bfa8f650eee24f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  str: 0
+  spd: 0
+  dex: 0
+  stm: 0
+  intl: 0
+  rec: 0
+  refl: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

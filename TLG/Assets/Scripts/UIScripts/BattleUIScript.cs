@@ -86,6 +86,8 @@ public class BattleUIScript : MonoBehaviour {
             Time.timeScale = 1;
         }
     }
+
+
 #endregion
 
     #region TalentMenu
@@ -105,7 +107,21 @@ public class BattleUIScript : MonoBehaviour {
         //talentsPanel.SetBool("isHidden", false);
     }
     #endregion
-    
+
+    #region Restart
+    public void OnRestartClick()
+    {
+        Application.LoadLevel("BattleScene");
+    }
+#endregion
+
+    #region Quit
+    public void OnQuitClick()
+    {
+        Application.LoadLevel("MainMenuScene");
+    }
+#endregion
+
     #region SpecialAbilityOne
 
     #endregion

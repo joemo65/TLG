@@ -52,7 +52,7 @@ public class CharacterUIManagerScript : MonoBehaviour
         equipmentList = GameObject.Find("GameManager").GetComponent<GameManagerScript>().GetMeleeList();    //get the list of the melee weapons
         SetCurrentImage();  //set the current image to the first element in the array
         SetCurrentText();   //set the current text to the first element in the array 
-        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);  //move to the middle of the screen
+        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0, 10);  //move to the middle of the screen
         equipmentType.text = "Melee";   //update the text to melee
 
     }
@@ -62,7 +62,7 @@ public class CharacterUIManagerScript : MonoBehaviour
         equipmentList = GameObject.Find("GameManager").GetComponent<GameManagerScript>().GetRangeList();    //get the list of the range weapons
         SetCurrentImage();  //set the current image to the first element in the array
         SetCurrentText();   //set the current text to the first element in the array 
-        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);  //move to the middle of the screen
+        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0, 10);  //move to the middle of the screen
         equipmentType.text = "Range";   //update the text to range
     }
 
@@ -71,7 +71,7 @@ public class CharacterUIManagerScript : MonoBehaviour
         equipmentList = GameObject.Find("GameManager").GetComponent<GameManagerScript>().GetOffensiveAbilityList();    //get the list of the offensive specials
         SetCurrentImage();   //set the current image to the first element in the array
         SetCurrentText();   //set the current text to the first element in the array 
-        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);  //move to the middle of the screen
+        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0, 10);  //move to the middle of the screen
         equipmentType.text = "Offensive";   //update the text to Specials
     }
     
@@ -80,7 +80,7 @@ public class CharacterUIManagerScript : MonoBehaviour
         equipmentList = GameObject.Find("GameManager").GetComponent<GameManagerScript>().GetDefensiveAbilityList();    //get the list of the offensive specials
         SetCurrentImage();   //set the current image to the first element in the array
         SetCurrentText();   //set the current text to the first element in the array 
-        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);  //move to the middle of the screen
+        equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0, 10);  //move to the middle of the screen
         equipmentType.text = "Defensive";   //update the text to Specials
     }
     #endregion
@@ -125,17 +125,25 @@ public class CharacterUIManagerScript : MonoBehaviour
     #region Accept
     public void Accept()
     {
-        print(characterManager.GetComponent<CharacterManagerScript>());
         if (current != null)
         {
+            //need to create a live copy of the object so that it gets instantiated properly(stats).
             if (equipmentType.text == "Melee")
-                characterManager.GetComponent<CharacterManagerScript>().SetMeleeWeapon(current);
+            {
+                characterManager.GetComponent<CharacterManagerScript>().AddMeleeWeapon(current);
+            }
             else if (equipmentType.text == "Range")
-                characterManager.GetComponent<CharacterManagerScript>().SetRangeWeapon(current);
+            {
+                characterManager.GetComponent<CharacterManagerScript>().AddRangeWeapon(current);
+            }
             else if (equipmentType.text == "Offensive")
-                characterManager.GetComponent<CharacterManagerScript>().SetOffensiveAbility(current);
+            {
+                characterManager.GetComponent<CharacterManagerScript>().AddOffensiveAbility(current);
+            }
             else if (equipmentType.text == "Defensive")
-                characterManager.GetComponent<CharacterManagerScript>().SetDefensiveAbility(current);
+            {
+                characterManager.GetComponent<CharacterManagerScript>().AddDefensiveAbility(current);
+            }
         }
 
         UpdateStats();
@@ -149,7 +157,21 @@ public class CharacterUIManagerScript : MonoBehaviour
         equipmentPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(800, 0, 10);    //move the panel off the screen.
     }
     #endregion
+    #region StartBattle
+    public void StartBattle()
+    {
+        //check to see if all items have been selected
+        if(CheckEquipment())
+        {
+            //have the character manager collect the instantiated equipment
+            characterManager.GetComponent<CharacterManagerScript>().AddEquipment();
 
+            //start playing
+            Application.LoadLevel("BattleScene");
+        }
+    }
+    #endregion
+    #region PrivateMethods
     private void SetCurrentImage(int currentElement = 0)
     {
         //if the list isn't empty
@@ -209,9 +231,39 @@ public class CharacterUIManagerScript : MonoBehaviour
                 txt.text = stats.Reflex.ToString();
         }
     }
-    public void StartBattle()
+
+    private bool CheckEquipment()
     {
-        //update the prefab of the main character that will be used in the battle scene.
-        Application.LoadLevel("BattleScene");
+        bool ready = false;         //flag that is et true once each item has been selected
+        int equipReadyCount = 0;    //counter that increments once each item has been selected
+
+        if (GameObject.FindGameObjectWithTag("MeleeWeapon") != null)
+        {
+            equipReadyCount++;
+        }
+        if (GameObject.FindGameObjectWithTag("RangeWeapon") != null)
+        {
+            equipReadyCount++;
+        }
+        if (GameObject.FindGameObjectWithTag("OffensiveAbility") != null)
+        {
+            equipReadyCount++;
+        }
+        if (GameObject.FindGameObjectWithTag("DefensiveAbility") != null)
+        {
+            equipReadyCount++;
+        }
+
+        if(equipReadyCount == 4)
+        {
+            ready = true;
+        }
+        else
+        {
+            equipReadyCount = 0;
+        }
+
+        return ready;
     }
+    #endregion
 }

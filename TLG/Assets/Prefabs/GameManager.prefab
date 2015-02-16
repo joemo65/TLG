@@ -41,11 +41,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterManager: {fileID: 0}
   meleeWeapon0: {fileID: 100000, guid: d2a1404e4de1f5144b4411a38d0d8db7, type: 2}
-  meleeWeapon1: {fileID: 0}
+  meleeWeapon1: {fileID: 100000, guid: bebaffe5ee4ce5c4aab705ed31bbc34e, type: 2}
   meleeWeapon2: {fileID: 0}
   meleeWeapon3: {fileID: 0}
   rangeWeapon0: {fileID: 100000, guid: 8db061dff18b4e448b11d2ed023cdec1, type: 2}
-  rangeWeapon1: {fileID: 0}
+  rangeWeapon1: {fileID: 100000, guid: aac279a0b3f5fd24ab6ce90a907c60c9, type: 2}
   rangeWeapon2: {fileID: 0}
   rangeWeapon3: {fileID: 0}
   offensiveAbility0: {fileID: 100000, guid: 86dc4794504eaf44895efec02ae33928, type: 2}
@@ -53,7 +53,7 @@ MonoBehaviour:
   offensiveAbility2: {fileID: 0}
   offensiveAbility3: {fileID: 0}
   defensiveAbility0: {fileID: 100000, guid: 8788effcbac14964988d5bd751dfdcd2, type: 2}
-  defensiveAbility1: {fileID: 0}
+  defensiveAbility1: {fileID: 100000, guid: d4839f0bee61dbd41a48f66c9ec96a54, type: 2}
   defensiveAbility2: {fileID: 0}
   defensiveAbility3: {fileID: 0}
   talent0: {fileID: 0}

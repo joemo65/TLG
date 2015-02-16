@@ -51,9 +51,11 @@
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterMeleeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterRangeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\DefensiveAbilityScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\MeleeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\MoveCharacterScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\OffensiveAbilityScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\RangeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\RoidsScript.cs" />
      <Compile Include="Assets\Scripts\EnemyManagerScript.cs" />

@@ -8,7 +8,7 @@ public class EnemyScript : MonoBehaviour{
     public float score = 100;                   //how much points this enemy unit is worth.
 
     private GameObject playerReference;
-    private Stats stats = new Stats();
+    private Stats stats;
     private SpriteRenderer healthBar;           //reference to the sprite health bar display
     private Vector3 healthScale;                //a local scale of the health bar.
     private ScoreManagerScript scoreReference;  //reference to the score Manager

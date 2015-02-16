@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 9
   m_Name: Sword
-  m_TagString: Player
+  m_TagString: MeleeWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,6 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630fd19305a90764f9e14ace7dd71ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  str: 2
+  spd: 3
+  dex: 3
+  stm: 1
+  intl: 0
+  rec: 0
+  refl: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,17 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RangeWeaponScript : MonoBehaviour {
+public class RangeWeaponScript : MonoBehaviour 
+{
+    //to set each individual weapon to be different
+    public float str = 0;
+    public float spd = 0;
+    public float dex = 0;
+    public float stm = 0;
+    public float intl = 0;
+    public float rec = 0;
+    public float refl = 0;
+
+    private Stats stats = new Stats();
 
 	// Use this for initialization
 	void Start ()
     {
-        // Destroy the weapon after 2 seconds if it doesn't get destroyed before then.
-        Destroy(gameObject, 2);
+        stats = new Stats(str, spd, dex, stm, intl, rec, refl);
+
+        if(Application.loadedLevel.ToString() == "BattleScene")
+            // Destroy the weapon after 2 seconds if it doesn't get destroyed before then.
+            Destroy(gameObject, 2);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
 	
 	}
 
@@ -19,8 +34,12 @@ public class RangeWeaponScript : MonoBehaviour {
     {
         if(col.gameObject.tag == "Enemy")
         {
-            //Destroy(col.gameObject);
             col.gameObject.GetComponent<EnemyScript>().TakeDamage(5);
         }
+    }
+
+    public Stats GetStats()
+    {
+        return stats;
     }
 }

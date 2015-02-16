@@ -2,47 +2,26 @@
 using System.Collections;
 
 //contains the objects that make up a character
-public class CharacterScript : MonoBehaviour {
+public class CharacterScript : MonoBehaviour
+{
+    //to set each individual weapon to be different
+    public float str = 0;
+    public float spd = 0;
+    public float dex = 0;
+    public float stm = 0;
+    public float intl = 0;
+    public float rec = 0;
+    public float refl = 0;
 
-    private Stats stats = new Stats();
-    private GameObject meleeWeapon;
-    private GameObject rangeWeapon;
-    private GameObject offensiveAbility;
-    private GameObject defensiveAbility;
+    private Stats baseStats = new Stats(1, 1, 1, 1, 1, 1, 1);     //the stats of the character
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-	    meleeWeapon = new GameObject();
-        rangeWeapon = new GameObject();
-        offensiveAbility = new GameObject();
-        defensiveAbility = new GameObject();
-	}
-
-    public Stats GetStats()
-    {
-        return stats;
     }
 
-    public GameObject MeleeWeapon
+    public Stats GetBaseStats()
     {
-        get { return meleeWeapon; }
-        set { meleeWeapon = value; }
-    }
-
-    public GameObject RangeWeapon
-    {
-        get { return rangeWeapon; }
-        set { rangeWeapon = value; }
-    }
-    public GameObject OffensiveAbility
-    {
-        get { return offensiveAbility; }
-        set { offensiveAbility = value; }
-    }
-    public GameObject DefensiveAbility
-    {
-        get { return defensiveAbility; }
-        set { defensiveAbility = value; }
+        return baseStats;
     }
 }
