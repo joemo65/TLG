@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class MoveCharacterScript : MonoBehaviour {
 
@@ -9,19 +10,17 @@ public class MoveCharacterScript : MonoBehaviour {
 	public float moveForce = 5f;			        // Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				        // The fastest the player can travel in the x axis.
 
-    
-
-
 	void Update()
 	{
 	}
 	
-	
 	void FixedUpdate ()
 	{
-        try
+        if (Input.touchCount == 1)
         {
-            if (Input.touchCount == 1)
+            EventSystem eventSystem = EventSystem.current;
+
+            if (!eventSystem.IsPointerOverGameObject())
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Stationary)
                 {
@@ -40,10 +39,6 @@ public class MoveCharacterScript : MonoBehaviour {
                     CheckAndFlip(touchPosition);
                 }
             }
-        }
-        catch(UnityException e)
-        {
-            //do nothing
         }
 	}
 	

@@ -2,36 +2,65 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class BattleUIScript : MonoBehaviour {
+public class BattleUIScript : MonoBehaviour 
+{
    
-    //public Animator pausePanel;
-    //public Animator talentsPanel;
-
     private GameObject GameManager;
     private GameObject optionsPanel;
     private GameObject talentsPanel;
     private bool paused = false;
     private ScoreManagerScript scoreReference;      //reference to the score manager script.
-    private Text textReference;                     //reference to the score UI text.
+    private Text scoreNumber;                       //reference to the score UI text.
+    private Text roundNumber;                       //reference to the round UI text.
+    private GameObject characterManager;            //reference to the game manager.
+    private GameObject roundManager;                //reference to the round manager.
 
 	// Use this for initialization
 	void Start () 
     {
         scoreReference = GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>();    //set the reference to the scoreManager's script.
-        ///
-        ///update this text reference. see CharacterUIManagerScript
-        textReference = GetComponent<Text>();   //set the reference to the Score Number text.
+
+        foreach (Text txt in gameObject.GetComponentsInChildren<Text>())
+        {
+            if (txt.name == "ScoreNumber")
+            {
+                scoreNumber = txt;   //set the reference to the Score Number text.
+            }
+
+            if(txt.name == "RoundNumber")
+            {
+                roundNumber = txt;    //set the reference to the round number text.
+            }
+        }
+
         optionsPanel = GameObject.Find("OptionsMenuCanvas");
         talentsPanel = GameObject.Find("TalentsMenuCanvas");
+        characterManager = GameObject.Find("CharacterManager");
+        roundManager = GameObject.Find("RoundManager");
+
+        //set the image of the button to the image of the special
+        GameObject.Find("PrimarySpecialAbilityButton").GetComponentInChildren<RawImage>().texture = 
+            GameObject.FindGameObjectWithTag("OffensiveAbility").GetComponent<SpriteRenderer>().sprite.texture;
+
+        //set the image of the button to the image of the special
+        GameObject.Find("SecondarySpecialAbilityButton").GetComponentInChildren<RawImage>().texture =
+            GameObject.FindGameObjectWithTag("DefensiveAbility").GetComponent<SpriteRenderer>().sprite.texture;
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if (textReference != null)
+        if (scoreNumber != null)
         {
             //update the score number
-            textReference.text = scoreReference.TotalScore.ToString();
+            scoreNumber.text = scoreReference.TotalScore.ToString();      //update this so that it has a reference to the object instead of the script like RoundManager
+        }
+
+        if(roundNumber != null)
+        {
+            //update the round number
+            roundNumber.text = roundManager.GetComponent<RoundManagerScript>().GetRound().ToString();
         }
 	}
 
@@ -123,9 +152,28 @@ public class BattleUIScript : MonoBehaviour {
 #endregion
 
     #region SpecialAbilityOne
+    public void OnSpecialAbilityOneClick()
+    {
+        //characterManager.GetComponent<CharacterManagerScript>().GetCharacter();
+        GameObject specialRef = GameObject.FindGameObjectWithTag("OffensiveAbility");
 
+        if(specialRef != null)
+        {
+            specialRef.GetComponent<OffensiveAbilityScript>().Activate();
+        }
+    }
     #endregion
 
     #region SpecialAbilityTwo
+    public void OnSpecialAbilityTwoClick()
+    {
+        //characterManager.GetComponent<CharacterManagerScript>().GetCharacter();
+        GameObject specialRef = GameObject.FindGameObjectWithTag("DefensiveAbility");
+
+        if (specialRef != null)
+        {
+            specialRef.GetComponent<DefensiveAbilityScript>().Activate();
+        }
+    }
     #endregion
 }

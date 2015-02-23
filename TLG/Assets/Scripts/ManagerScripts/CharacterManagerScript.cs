@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
 
 public class CharacterManagerScript : MonoBehaviour 
 {
@@ -10,11 +12,16 @@ public class CharacterManagerScript : MonoBehaviour
     private GameObject rangeWeapon;
     private GameObject offensiveAbility;
     private GameObject defensiveAbility;
+    private Sprite obj;
 
 	// Use this for initialization
 	void Start ()
     {
-       character = (GameObject)Instantiate(character);
+        if(!GameObject.Find("MainCharacter(Clone)"))
+        {
+            character = (GameObject)Instantiate(character);
+            character.transform.parent = gameObject.transform;
+        }
 	}
 	
     public Stats GetCharacterStats()
@@ -28,18 +35,21 @@ public class CharacterManagerScript : MonoBehaviour
     {
         DestroyPrevious("MeleeWeapon");
         meleeWeapon = (GameObject)Instantiate(weapon);
+        meleeWeapon.transform.parent = character.transform;
     }
 
     public void AddRangeWeapon(GameObject weapon)
     {
         DestroyPrevious("RangeWeapon");
         rangeWeapon = (GameObject)Instantiate(weapon);
+        rangeWeapon.transform.parent = character.transform;
     }
 
     public void AddOffensiveAbility(GameObject ability)
     {
         DestroyPrevious("OffensiveAbility");
         offensiveAbility = (GameObject)Instantiate(ability);
+        offensiveAbility.transform.parent = character.transform;
 
     }
 
@@ -47,17 +57,19 @@ public class CharacterManagerScript : MonoBehaviour
     {
         DestroyPrevious("DefensiveAbility");
         defensiveAbility = (GameObject)Instantiate(ability);
+        defensiveAbility.transform.parent = character.transform;
 
     }
+
 
     public void AddTalent(GameObject talent)
     {
 
     }
 
-    public void AddEquipment()
+    public void UpdatePrefab()
     {
-
+        PrefabUtility.ReplacePrefab(gameObject, PrefabUtility.GetPrefabParent(gameObject), ReplacePrefabOptions.ConnectToPrefab);
     }
 
     private void DestroyPrevious(string equipmentTag)
@@ -151,5 +163,10 @@ public class CharacterManagerScript : MonoBehaviour
     {
         get { return defensiveAbility; }
         set { defensiveAbility = value; }
+    }
+
+    public GameObject GetCharacter()
+    {
+        return GameObject.Find("MainCharacter(Clone)");
     }
 }

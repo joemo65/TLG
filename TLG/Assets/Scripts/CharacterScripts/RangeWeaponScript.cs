@@ -19,15 +19,12 @@ public class RangeWeaponScript : MonoBehaviour
     {
         stats = new Stats(str, spd, dex, stm, intl, rec, refl);
 
-        if(Application.loadedLevel.ToString() == "BattleScene")
+        //if the spear isn't a child object of the main character object
+        if(gameObject.transform.parent == null)
+        {
             // Destroy the weapon after 2 seconds if it doesn't get destroyed before then.
             Destroy(gameObject, 2);
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
+        }
 	}
 
     void OnCollisionEnter2D(Collision2D col)

@@ -164,7 +164,7 @@ public class CharacterUIManagerScript : MonoBehaviour
         if(CheckEquipment())
         {
             //have the character manager collect the instantiated equipment
-            characterManager.GetComponent<CharacterManagerScript>().AddEquipment();
+            characterManager.GetComponent<CharacterManagerScript>().UpdatePrefab();
 
             //start playing
             Application.LoadLevel("BattleScene");

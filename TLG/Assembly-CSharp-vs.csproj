@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
-     <Compile Include="Assets\Scripts\CharacterManagerScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\AbilityScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterMeleeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterRangeScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\CharacterScript.cs" />
@@ -55,12 +55,15 @@
      <Compile Include="Assets\Scripts\CharacterScripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\MeleeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\MoveCharacterScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\NetScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\OffensiveAbilityScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\RangeWeaponScript.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\RoidsScript.cs" />
-     <Compile Include="Assets\Scripts\EnemyManagerScript.cs" />
-     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
-     <Compile Include="Assets\Scripts\ScoreManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ManagerScripts\CharacterManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ManagerScripts\EnemyManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ManagerScripts\GameManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ManagerScripts\RoundManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ManagerScripts\ScoreManagerScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\UIScripts\BattleUIScript.cs" />

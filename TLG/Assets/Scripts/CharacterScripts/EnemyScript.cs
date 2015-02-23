@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyScript : MonoBehaviour{
 
     public float HP = 1;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 8f;
     public float score = 100;                   //how much points this enemy unit is worth.
 
     private GameObject playerReference;
