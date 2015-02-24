@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 
 public class CharacterManagerScript : MonoBehaviour 
 {
@@ -69,7 +69,10 @@ public class CharacterManagerScript : MonoBehaviour
 
     public void UpdatePrefab()
     {
-        PrefabUtility.ReplacePrefab(gameObject, PrefabUtility.GetPrefabParent(gameObject), ReplacePrefabOptions.ConnectToPrefab);
+        //this only works in editor
+        //okay to not use since the prefab will get changed through the game, but remain it's original afterwards
+        //PrefabUtility.ReplacePrefab(gameObject, PrefabUtility.GetPrefabParent(gameObject), ReplacePrefabOptions.ConnectToPrefab);
+
     }
 
     private void DestroyPrevious(string equipmentTag)

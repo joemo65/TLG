@@ -62,12 +62,14 @@
      <Compile Include="Assets\Scripts\ManagerScripts\CharacterManagerScript.cs" />
      <Compile Include="Assets\Scripts\ManagerScripts\EnemyManagerScript.cs" />
      <Compile Include="Assets\Scripts\ManagerScripts\GameManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ManagerScripts\PlayerManagerScript.cs" />
      <Compile Include="Assets\Scripts\ManagerScripts\RoundManagerScript.cs" />
      <Compile Include="Assets\Scripts\ManagerScripts\ScoreManagerScript.cs" />
      <Compile Include="Assets\Scripts\SpawnerScript.cs" />
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\UIScripts\BattleUIScript.cs" />
      <Compile Include="Assets\Scripts\UIScripts\CharacterUIManagerScript.cs" />
+     <Compile Include="Assets\Scripts\UIScripts\LeaderboardsUIManagerScript.cs" />
      <Compile Include="Assets\Scripts\UIScripts\MainMenuUIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
