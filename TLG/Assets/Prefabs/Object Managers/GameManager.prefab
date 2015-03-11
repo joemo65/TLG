@@ -56,15 +56,18 @@ MonoBehaviour:
   defensiveAbility1: {fileID: 100000, guid: d4839f0bee61dbd41a48f66c9ec96a54, type: 2}
   defensiveAbility2: {fileID: 0}
   defensiveAbility3: {fileID: 0}
-  talent0: {fileID: 0}
-  talent1: {fileID: 0}
-  talent2: {fileID: 0}
-  talent3: {fileID: 0}
-  talent4: {fileID: 0}
-  talent5: {fileID: 0}
-  talent6: {fileID: 0}
-  talent7: {fileID: 0}
-  talent8: {fileID: 0}
+  talent0: {fileID: 100000, guid: 28c73f899d1dd284783bb5eb94cd0476, type: 2}
+  talent1: {fileID: 100000, guid: 3e280b73152015b4b9fe65bd1df76770, type: 2}
+  talent2: {fileID: 100000, guid: 8e2739071c20cff4e8842376abc50ace, type: 2}
+  talent3: {fileID: 100000, guid: 9c5d81527b7dcef4eb7ec796c9fb6e78, type: 2}
+  talent4: {fileID: 100000, guid: 78b70cf53a02d9e408826b4085a5c11b, type: 2}
+  talent5: {fileID: 100000, guid: a9ae06e5b738f8a4c81441e1580a8eb2, type: 2}
+  talent6: {fileID: 100000, guid: ad1ec0df94031be4eb2493e966de3968, type: 2}
+  talent7: {fileID: 100000, guid: 95111f4570afa704cb49f1e541ee3035, type: 2}
+  talent8: {fileID: 100000, guid: e836662ab1e694f40b804e3851da49b7, type: 2}
+  talent9: {fileID: 100000, guid: 89503070baa5d314eb13ce53234a6d19, type: 2}
+  talent10: {fileID: 100000, guid: 622fcb834f12cbc44987695a8567f9cd, type: 2}
+  talent11: {fileID: 100000, guid: 7c0fa013c045ffd418b27dd446ceef87, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

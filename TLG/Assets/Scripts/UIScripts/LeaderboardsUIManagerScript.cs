@@ -1,33 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GooglePlayGames;
 
 public class LeaderboardsUIManagerScript : MonoBehaviour 
 {
-    private GameObject playerManager = GameObject.Find("PlayerManager");    //reference the playermanager to find how many items to put inside the listbox
+    private string scoreLeaderboard = "CgkIu5vLvc8SEAIQBg";             //key to the score leaderboard.
+    private string roundsSurvivedLeaderboard = "CgkIu5vLvc8SEAIQBw";    //key to the rounds survived leaderboard.
+    private string enemiesVanquishedLeaderboard = "CgkIu5vLvc8SEAIQCA"; //key to the enemies vanquished leaderboard.
 
 	// Use this for initialization
 	void Start () 
     {
-        CreateListBox();
 	}
-
 
     public void OnXButtonClick()
     {
         Application.LoadLevel("MainMenuScene");
     }
 
-    private void CreateListBox()
+    public void OnScoresButtonClick()
     {
-        ArrayList list = playerManager.GetComponent<PlayerManagerScript>().GetList();
-        for (int i = 0; i < list.Count; i++)
-        {
-            CreateButton(list[i]);
-        }
+        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(scoreLeaderboard);
     }
 
-    private void CreateButton(object item)
+    public void OnEnemiesVanquishedButtonClick()
     {
-        //Instantiate(GUI)
+        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(enemiesVanquishedLeaderboard);
+    }
+
+    public void OnRoundsSurvivedButtonClick()
+    {
+        ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI(roundsSurvivedLeaderboard);
     }
 }

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour{
-
-    public float HP = 1;
+public class EnemyScript : MonoBehaviour
+{
+    public float health = 1;
     public float moveSpeed = 8f;
     public float score = 100;                   //how much points this enemy unit is worth.
+    public float strength = 1;
 
     private GameObject playerReference;
     private Stats stats;
@@ -18,7 +19,6 @@ public class EnemyScript : MonoBehaviour{
     {
         playerReference = GameObject.FindGameObjectWithTag("Player");
         scoreReference = GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>();
-        //HP = stats.Stamina * 10;
 	}
 
     void Awake()
@@ -34,16 +34,24 @@ public class EnemyScript : MonoBehaviour{
     void OnCollsionEnter2D(Collider2D col)
     {
         // If any of the colliders is an Obstacle...
-        if (col.tag == "Obstacle")
+        if (col.tag == "Obstacle" || col.tag == "Enemy")
         {
             Flip();
+        }
+
+        if(col.tag == "Player")
+        {
+            print("enemy-> player collision!");
+            col.gameObject.GetComponent<CharacterScript>().TakeDamage(strength);
+            col.gameObject.GetComponent<CharacterScript>().SetTakingDamage(true);
+
         }
     }
 
     void FixedUpdate()
     {
         //update the health of the enemy unit
-        if (HP < 1)
+        if (health < 1)
         {
             Death();    
         }
@@ -72,25 +80,26 @@ public class EnemyScript : MonoBehaviour{
     //reduce health base on damage
     public void TakeDamage(float dmg = 0)
     {
-        HP -= dmg;
+        health -= dmg;
 
-        if(HP < 1)
+        if(health < 1)
         {
             Death();
         }
 
-        UpdateHealthBar();
+        //UpdateHealthBar();
     }
 
     public void Death()
     {
         scoreReference.CalculateTotalScore(score);  //give the score manager the score of the enemy
+        scoreReference.EnemyIsVanquished();
         Destroy(gameObject);    //destroy the object
     }
 
     public void UpdateHealthBar()
     {
-        //healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - HP * 0.01f);
-        //healthBar.transform.localScale = new Vector3(healthScale.x * HP * 0.01f, 1, 1);
+        //healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
+        //healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
     }
 }

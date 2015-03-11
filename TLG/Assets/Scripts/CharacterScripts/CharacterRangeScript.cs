@@ -9,6 +9,7 @@ public class CharacterRangeScript : MonoBehaviour
     private GameObject rangeWeaponInstance;     //a copy of the range weapon
     private Stats baseStats = new Stats();
     private MoveCharacterScript moveCharacter;  //reference to the move character script to get the facing direction.
+    private static float damage = 2;            //constant value for the range weapon.
 
     // Use this for initialization
     void Start()
@@ -47,6 +48,14 @@ public class CharacterRangeScript : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Enemy")
+        {
+            col.gameObject.GetComponent<EnemyScript>().TakeDamage(damage);
         }
     }
 }

@@ -5,16 +5,21 @@ using System.Collections.Generic;
 
 public class CharacterManagerScript : MonoBehaviour 
 {
-    public GameObject character;                //reference to the main character
+    public GameObject character;                              //reference to the main character
 
-    private Stats overallStats = new Stats();                 //holds the combination of the character's base stats and the equipments stats.
+    private static Stats overallStats = new Stats();                 //holds the combination of the character's base stats and the equipments stats.
     private GameObject meleeWeapon;
     private GameObject rangeWeapon;
     private GameObject offensiveAbility;
     private GameObject defensiveAbility;
-    private Sprite obj;
+    private ArrayList talents;
+    private int talentPoint = 0;
+    private float overallHealth = 0;
+    private float currentHealth = 0;
+    private float timeDelay = 0f;
+    private float damageDelay = 1f;
 
-	// Use this for initialization
+	//Use this for initialization
 	void Start ()
     {
         if(!GameObject.Find("MainCharacter(Clone)"))
@@ -22,11 +27,30 @@ public class CharacterManagerScript : MonoBehaviour
             character = (GameObject)Instantiate(character);
             character.transform.parent = gameObject.transform;
         }
+        CalculateOverallHealth();
 	}
 	
+    void Update()
+    {
+        TakeDamage();
+    }
+
+    private void TakeDamage()
+    {
+        if (character.GetComponent<CharacterScript>().IsTakingDamage())
+        {
+            if (Time.time > timeDelay)
+            {
+                currentHealth -= character.GetComponent<CharacterScript>().GetDamageTaken();
+                timeDelay = Time.time + damageDelay;
+            }
+        }
+    }
+
     public Stats GetCharacterStats()
     {
         CalculateOverallStats();
+        CalculateOverallHealth();
 
         return overallStats;
     }
@@ -37,14 +61,12 @@ public class CharacterManagerScript : MonoBehaviour
         meleeWeapon = (GameObject)Instantiate(weapon);
         meleeWeapon.transform.parent = character.transform;
     }
-
     public void AddRangeWeapon(GameObject weapon)
     {
         DestroyPrevious("RangeWeapon");
         rangeWeapon = (GameObject)Instantiate(weapon);
         rangeWeapon.transform.parent = character.transform;
     }
-
     public void AddOffensiveAbility(GameObject ability)
     {
         DestroyPrevious("OffensiveAbility");
@@ -52,7 +74,6 @@ public class CharacterManagerScript : MonoBehaviour
         offensiveAbility.transform.parent = character.transform;
 
     }
-
     public void AddDefensiveAbility(GameObject ability)
     {
         DestroyPrevious("DefensiveAbility");
@@ -61,17 +82,18 @@ public class CharacterManagerScript : MonoBehaviour
 
     }
 
+    public void AddTalentPoint(int point)
+    {
+        talentPoint += point;
+    }
+
+    public int GetTalentPoints()
+    {
+        return talentPoint;
+    }
 
     public void AddTalent(GameObject talent)
     {
-
-    }
-
-    public void UpdatePrefab()
-    {
-        //this only works in editor
-        //okay to not use since the prefab will get changed through the game, but remain it's original afterwards
-        //PrefabUtility.ReplacePrefab(gameObject, PrefabUtility.GetPrefabParent(gameObject), ReplacePrefabOptions.ConnectToPrefab);
 
     }
 
@@ -145,13 +167,34 @@ public class CharacterManagerScript : MonoBehaviour
             overallStats.Reflex += defensiveAbility.GetComponent<DefensiveAbilityScript>().refl;
         }
     }
+    private void CalculateOverallHealth()
+    {
+        overallHealth = character.GetComponent<CharacterScript>().GetHealth();
+        if(overallStats.Stamina != 0)
+            overallHealth = overallStats.Stamina * 100;
+        SetCurrentHealth(overallHealth);
+    }
+
+    public void SetCurrentHealth(float health)
+    {
+        currentHealth = health;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public float GetOverallHealth()
+    {
+        return overallHealth;
+    }
 
     public GameObject MeleeWeapon
     {
         get { return meleeWeapon; }
         set { meleeWeapon = value; }
-    }
-    
+    }  
     public GameObject RangeWeapon
     {
         get { return rangeWeapon; }
@@ -167,9 +210,12 @@ public class CharacterManagerScript : MonoBehaviour
         get { return defensiveAbility; }
         set { defensiveAbility = value; }
     }
-
     public GameObject GetCharacter()
     {
         return GameObject.Find("MainCharacter(Clone)");
+    }
+    public Stats GetOverallStats()
+    {
+        return overallStats;
     }
 }

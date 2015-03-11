@@ -163,9 +163,6 @@ public class CharacterUIManagerScript : MonoBehaviour
         //check to see if all items have been selected
         if(CheckEquipment())
         {
-            //have the character manager collect the instantiated equipment
-            characterManager.GetComponent<CharacterManagerScript>().UpdatePrefab();
-
             //start playing
             Application.LoadLevel("BattleScene");
         }

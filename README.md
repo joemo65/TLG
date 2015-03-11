@@ -1,2 +1,0 @@
-# TLG
-The Last Gladiator.

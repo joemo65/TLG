@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScoreManagerScript : MonoBehaviour {
+public class ScoreManagerScript : MonoBehaviour
+{
 
     private float totalScore;
     private float roundsSurvived;
     private float enemiesVanquished;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 

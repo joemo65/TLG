@@ -38,6 +38,9 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject talent6;
     public GameObject talent7;
     public GameObject talent8;
+    public GameObject talent9;
+    public GameObject talent10;
+    public GameObject talent11;
 
     private ArrayList meleeWeaponList = new ArrayList();
     private ArrayList rangeWeaponList = new ArrayList();
@@ -130,8 +133,15 @@ public class GameManagerScript : MonoBehaviour {
             talentsList.Add(talent7);
         if (talent8 != null)
             talentsList.Add(talent8);
+        if (talent9 != null)
+            talentsList.Add(talent9);
+        if (talent10 != null)
+            talentsList.Add(talent10);
+        if (talent11 != null)
+            talentsList.Add(talent11);
     }
     #endregion
+
     #region GetLists
     public ArrayList GetMeleeList()
     { 

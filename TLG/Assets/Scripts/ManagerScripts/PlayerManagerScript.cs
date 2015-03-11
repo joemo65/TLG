@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerManagerScript : MonoBehaviour 
 {
     //may change the data structure.
-    private ArrayList listOfPlayers = new ArrayList();
+    private ArrayList listOfPlays = new ArrayList();
+    //private int port = 25001;
+    //private string address = "96.41.175.241";
 
 	// Use this for initialization
 	void Start () 
     {
-        //TEST: add 3 items to the list
-        listOfPlayers.Add(1);
-        listOfPlayers.Add(2);
-        listOfPlayers.Add(3);
-
-	    //TODO: load in user stats.
+        ConnectToServer();
 	}
-	
+
+	public void ConnectToServer()
+    {
+        //print("Connect to server");
+        //Network.Connect(address);
+    }
+
 	// Update is called once per frame
 	void Update () 
     {
@@ -25,12 +29,12 @@ public class PlayerManagerScript : MonoBehaviour
 
     public int GetCount()
     {
-        return listOfPlayers.Count;
+        return listOfPlays.Count;
     }
 
     public ArrayList GetList()
     {
-        return listOfPlayers;
+        return listOfPlays;
     }
 
     private void Sort()

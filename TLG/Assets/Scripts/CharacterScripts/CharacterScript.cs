@@ -13,7 +13,10 @@ public class CharacterScript : MonoBehaviour
     public float rec = 0;
     public float refl = 0;
 
-    private Stats baseStats = new Stats(1, 1, 1, 1, 1, 1, 1);     //the stats of the character
+    private Stats baseStats = new Stats(1, 1, 1, 1, 1, 1, 1);            //the stats of the character
+    private static float health = 10;                                    //the base health of the character
+    private bool takingDamage = false;
+    private float damageTaken = 0;
 
     // Use this for initialization
     void Start()
@@ -23,5 +26,32 @@ public class CharacterScript : MonoBehaviour
     public Stats GetBaseStats()
     {
         return baseStats;
+    }
+
+    public float GetHealth()
+    {
+        return health;
+    }
+    
+    public void TakeDamage(float dmg = 0)
+    {
+        damageTaken = dmg;
+    }
+
+    //the enemy says that taking damage has occured, which is being polled by the character manager
+    public void SetTakingDamage(bool hit)
+    {
+        takingDamage = hit;
+    }
+
+    public bool IsTakingDamage()
+    {
+        return takingDamage;
+    }
+
+    //used to get the amount of damage for the characterManager.
+    public float GetDamageTaken()
+    {
+        return damageTaken;
     }
 }
