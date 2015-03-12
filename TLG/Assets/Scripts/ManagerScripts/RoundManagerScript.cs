@@ -6,8 +6,8 @@ public class RoundManagerScript : MonoBehaviour
     private Achievements achievements;      //contains the achievements to be unlocked
 
     //changing the round number to round six for testing talents.
-    private int roundNumber = 1;
-	
+    private int roundNumber = 5;//1;
+
     //increments the roundnumber
     public void NextRound()
     {
@@ -16,11 +16,12 @@ public class RoundManagerScript : MonoBehaviour
             //check to see if the round should provide a talent
             if (CheckTalentRound())
             { 
+                
                 //add a talent point to the character manager
                 GameObject.Find("CharacterManager").GetComponent<CharacterManagerScript>().AddTalentPoint(1);
             }
             
-            CheckAchievementRound();
+            //CheckAchievementRound();
             
             GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>().SurvivedRound(roundNumber);
 

@@ -1,17 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StaminaStatTalentScrip : TalentScript
+public class StaminaStatTalentScript : TalentScript
 {
+    
     // Use this for initialization
     void Start()
     {
-        name = "Stamina";
+        SetTalentAttributesToDefault();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Activate()
     {
+        print("Activate: + 20 stamina");
+        GameObject.Find("CharacterManager").GetComponent<CharacterManagerScript>().AddStat(new Stats(0,0,0,20));
+    }
 
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Stamina";
+        talentType = TalentTypes.StatTalent;
+        roundRequired = 5;
     }
 }

@@ -11,11 +11,12 @@ public class BattleUIScript : MonoBehaviour
     private GameObject talentsPanel;
     private GameObject gameOverPanel;
 
-    private bool paused = false;
+    private bool paused = false;                    //used to pause the game
 
     private Text scoreNumber;                       //reference to the score UI text.
     private Text roundNumber;                       //reference to the round UI text.
     private Text talentPointNumber;                 //reference to the talent point UI text.
+    private Text alertText;                         //reference to the alert UI text.
     private Text currentHealthNumber;               //reference to the current health UI Text.
     private Text overallHealthNumber;               //reference to the overall health UI Text.
 
@@ -31,6 +32,9 @@ public class BattleUIScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        ///
+        ///note: make sure to add this script to the text game object so that the text registers as a child gameobject.
+        ///
         foreach (Text txt in gameObject.GetComponentsInChildren<Text>())
         {
             if (txt.name == "ScoreNumber")
@@ -51,6 +55,11 @@ public class BattleUIScript : MonoBehaviour
             if(txt.name == "OverallHealthNumber")
             {
                 overallHealthNumber = txt;    //set the reference to the overall health text.
+            }
+
+            if(txt.name == "AlertText")
+            {
+                alertText = txt;     //set the reference to the talent point alert.
             }
         }
 
@@ -115,7 +124,33 @@ public class BattleUIScript : MonoBehaviour
                 GameOver();
             }
         }
+
+        if(alertText != null)
+        {
+            if(characterManager.GetComponent<CharacterManagerScript>().GetTalentPoints() > 0)
+            {
+                StartCoroutine(Alert());
+            }
+        }
 	}
+
+    private IEnumerator Alert()
+    {
+        ShowAlert("+1 Talent Point!");  //show the text
+        yield return new WaitForSeconds(3); //show it for 3 seconds
+        HideAlert();    //remove the alert from the screen
+    }
+    
+    private void ShowAlert(string alert)
+    {
+        alertText.text = alert; //update the alert to show the text from the parameter
+        alertText.transform.position = new Vector3(Screen.width/2, alertText.transform.position.y, 0);     //move the alert to the middle of the camera
+    }
+
+    private void HideAlert()
+    {
+        alertText.transform.position = new Vector3(-900, alertText.transform.position.y, 0);//move the alert off the camera
+    }
 
     #region PauseMenu
     //event handler for when the user selects the pause option
@@ -176,10 +211,9 @@ public class BattleUIScript : MonoBehaviour
     //on start, adds talents into panel.
     public void DisplayTalents()
     {
-        GameObject talentsCanvas = GameObject.Find("TalentsCanvas");
+        GameObject talentsCanvas = GameObject.Find("TalentsCanvas");    //the area within the talentsPanel
         ArrayList talents = gameManager.GetComponent<GameManagerScript>().GetTalentsList();
 
-        //GameObject talentButton = (GameObject)Resources.Load("Assets/Prefabs/UI/TalentButton", typeof(GameObject));
         GameObject talentButton = button;
 
         if (talentButton != null)
@@ -188,36 +222,42 @@ public class BattleUIScript : MonoBehaviour
             {
                 for (int i = 0; i < talents.Count; i++)
                 {
-                    GameObject currentTalent = (GameObject)talents[i];                  //get the talent
+                    GameObject currentTalent = (GameObject)talents[i];                  //get the talent    
+                    currentTalent.GetComponent<TalentScript>().SetTalentAttributesToDefault();  //set the talents to their names, basically a constructor method.
                     GameObject buttonClone = (GameObject)Instantiate(talentButton);     //create a button to put the talent in
                     Text buttonText = buttonClone.GetComponentInChildren<Text>();       //set reference to the button's text          
-                    buttonText.text = currentTalent.name; //currentTalent.GetComponent<TalentScript>().GetName();   //update the button's text to the talent's name
+                    buttonText.text = currentTalent.GetComponent<TalentScript>().GetTalentName();   //update the button's text to the talent's name
+                    buttonClone.GetComponent<Button>().onClick.AddListener(() =>
+                       GameObject.Find("BattleUIManager").GetComponent<BattleUIScript>().OnTalentButtonClick(currentTalent));   //add the event handler for the click
                     buttonClone.transform.SetParent(talentsCanvas.transform, false);    //put the button in the talent canvas.
                     ConfigureTalentsToTreeForm(buttonClone, i);                         //create a talent tree appearance.
 
-                    //print(currentTalent);
-                    //print(currentTalent.GetComponent<TalentScript>().GetTalentName());
                     //need to add an event for the buttons
                 }
             }
         }
     }
 
-    public void OnTalentButtonClick()
+    public void OnTalentButtonClick(GameObject talent)
     {
-        int round = roundManager.GetComponent<RoundManagerScript>().GetRound();
-
-        if(ValidTalentPick())
+        if(ValidTalentPick(talent))
         {
-
+            characterManager.GetComponent<CharacterManagerScript>().AddTalent(talent);
+            characterManager.GetComponent<CharacterManagerScript>().RemoveTalentPoint();
         }
     }
 
-    private bool ValidTalentPick()
+    private bool ValidTalentPick(GameObject talent)
     {
         bool returnValue = false;
-
-        print(returnValue);
+        
+        if(characterManager.GetComponent<CharacterManagerScript>().GetTalentPoints() > 0)
+        {
+            if(roundManager.GetComponent<RoundManagerScript>().GetRound() > talent.GetComponent<TalentScript>().GetRoundRequired())
+            {
+                returnValue = true;
+            }
+        }
 
 
         return returnValue;

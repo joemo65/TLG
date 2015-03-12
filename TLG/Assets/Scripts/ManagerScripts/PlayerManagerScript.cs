@@ -40,6 +40,5 @@ public class PlayerManagerScript : MonoBehaviour
     private void Sort()
     {
         //sort the data based on rank
-
     }
 }

@@ -7,7 +7,7 @@ public class SuperShockwaveSpecialTalentScript : TalentScript
 	// Use this for initialization
 	void Start () 
     {
-        name = "Super Shockwave";
+        talentName = "Super Shockwave";
 	}
 	
 	// Update is called once per frame
@@ -15,4 +15,16 @@ public class SuperShockwaveSpecialTalentScript : TalentScript
     {
 	
 	}
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
+
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Super Shockwave";
+        talentType = TalentTypes.SpecialTalent;
+        roundRequired = 20;
+    }
 }

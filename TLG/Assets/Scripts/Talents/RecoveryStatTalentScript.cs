@@ -7,7 +7,7 @@ public class RecoveryStatTalentScript : TalentScript
 	// Use this for initialization
 	void Start () 
     {
-        name = "Recovery";
+        talentName = "Recovery";
 	}
 	
 	// Update is called once per frame
@@ -15,4 +15,16 @@ public class RecoveryStatTalentScript : TalentScript
     {
 	
 	}
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
+
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Recovery";
+        talentType = TalentTypes.StatTalent;
+        roundRequired = 10;
+    }
 }

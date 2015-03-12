@@ -15,8 +15,18 @@ public class TalentScript : MonoBehaviour
         print(gameObject);
     }
 
+    public virtual void SetTalentAttributesToDefault()
+    {
+
+    }
+
     public string GetTalentName()
     {
         return talentName;
+    }
+
+    public int GetRoundRequired()
+    {
+        return roundRequired;
     }
 }

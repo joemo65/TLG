@@ -7,7 +7,7 @@ public class BrothersSpecialTalentScript : TalentScript
 	// Use this for initialization
 	void Start () 
     {
-        name = "Brothers";
+        talentName = "Brothers";
 	}
 	
 	// Update is called once per frame
@@ -15,4 +15,16 @@ public class BrothersSpecialTalentScript : TalentScript
     {
 	
 	}
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
+
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Brothers";
+        talentType = TalentTypes.SpecialTalent;
+        roundRequired = 20;
+    }
 }

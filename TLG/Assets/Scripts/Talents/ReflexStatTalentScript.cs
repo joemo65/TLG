@@ -6,7 +6,7 @@ public class ReflexStatTalentScript : TalentScript
 	// Use this for initialization
 	void Start () 
     {
-        name = "Reflex";
+        talentName = "Reflex";
 	}
 	
 	// Update is called once per frame
@@ -14,4 +14,16 @@ public class ReflexStatTalentScript : TalentScript
     {
 	
 	}
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
+
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Reflex";
+        talentType = TalentTypes.StatTalent;
+        roundRequired = 10;
+    }
 }

@@ -6,7 +6,7 @@ public class MarsSpecialTalentScript : TalentScript
 	// Use this for initialization
 	void Start () 
     {
-        name = "Mars";
+        talentName = "Mars";
 	}
 	
 	// Update is called once per frame
@@ -14,4 +14,16 @@ public class MarsSpecialTalentScript : TalentScript
     {
 	
 	}
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
+
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Mars";
+        talentType = TalentTypes.SpecialTalent;
+        roundRequired = 20;
+    }
 }

@@ -6,12 +6,24 @@ public class SpearWeaponTalentScript : TalentScript
     // Use this for initialization
     void Start()
     {
-        name = "Spear Weapon";
+        talentName = "Spear Weapon";
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public override void Activate()
+    {
+        base.Activate();
+    }
+
+    public override void SetTalentAttributesToDefault()
+    {
+        talentName = "Spear Weapon";
+        talentType = TalentTypes.WeaponTalent;
+        roundRequired = 15;
     }
 }

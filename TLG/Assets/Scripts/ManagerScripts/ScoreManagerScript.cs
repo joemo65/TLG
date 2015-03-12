@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ScoreManagerScript : MonoBehaviour
 {
-
     private float totalScore;
     private float roundsSurvived;
     private float enemiesVanquished;

@@ -10,14 +10,13 @@ public class EnemyManagerScript : MonoBehaviour
     public GameObject enemy3;           //reference to the type of enemy to spawn
     public GameObject enemy4;           //reference to the type of enemy to spawn
 
-    private bool newRound = true;
-    private int totalEnemies = 0;
-    private int enemiesToSpawn = 0;
-    private int numberOfFighters = 0;
-    private int numberOfSpearman = 0;
-    private int numberOfLegionares = 0;
-    private int numberOfLions = 0;
-    private int currentRound = 0;
+    private bool newRound = true;       //switch for the spawn enemies logic
+    private int totalEnemies = 0;       //total number of enemies to spawn in the round
+    private int numberOfFighters = 0;   //number of fighters enemies to spawn
+    private int numberOfSpearman = 0;   //number of spearman enemies to spawn
+    private int numberOfLegionares = 0; //number of legionares enemies to spawn
+    private int numberOfLions = 0;      //number of lion enemies to spawn
+    private int currentRound = 0;       //the current round to calculate the enemies to spawn
     private GameObject roundManager;    //reference to the round manager
     private GameObject leftSpawn;       //reference to the left spawn object
     private GameObject rightSpawn;      //reference to the right spawn object
@@ -30,7 +29,7 @@ public class EnemyManagerScript : MonoBehaviour
         rightSpawn = GameObject.Find("RightSpawn");         //set reference to the RightSpawn Object.
 
         
-        InvokeRepeating("SpawnEnemies", spawnTime, spawnDelay); // SpawnEnemies(); //start ng the spawn enemies function
+        InvokeRepeating("SpawnEnemies", spawnTime, spawnDelay); //starting the spawn enemies function
 	}
 
 	private void SpawnEnemies()

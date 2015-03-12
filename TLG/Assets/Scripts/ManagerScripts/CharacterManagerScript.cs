@@ -12,6 +12,7 @@ public class CharacterManagerScript : MonoBehaviour
     private GameObject rangeWeapon;
     private GameObject offensiveAbility;
     private GameObject defensiveAbility;
+    private GameObject talentClone;
     private ArrayList talents;
     private int talentPoint = 0;
     private float overallHealth = 0;
@@ -27,6 +28,7 @@ public class CharacterManagerScript : MonoBehaviour
             character = (GameObject)Instantiate(character);
             character.transform.parent = gameObject.transform;
         }
+
         CalculateOverallHealth();
 	}
 	
@@ -81,12 +83,26 @@ public class CharacterManagerScript : MonoBehaviour
         defensiveAbility.transform.parent = character.transform;
 
     }
+    public void AddStat(Stats stat)
+    {
+        overallStats.Stamina += stat.Stamina;
+        overallStats.Strength += stat.Strength;
+        overallStats.Speed += stat.Speed;
+        overallStats.Intellect += stat.Intellect;
+        overallStats.Reflex += stat.Reflex;
+        overallStats.Recovery += stat.Recovery;
+        CalculateOverallHealth();
+    }
 
     public void AddTalentPoint(int point)
     {
         talentPoint += point;
     }
 
+    public void RemoveTalentPoint(int point = 1)
+    {
+        talentPoint -= point;
+    }
     public int GetTalentPoints()
     {
         return talentPoint;
@@ -94,7 +110,9 @@ public class CharacterManagerScript : MonoBehaviour
 
     public void AddTalent(GameObject talent)
     {
-
+        talentClone = (GameObject)Instantiate(talent);          //create a game object of the talent
+        talentClone.transform.parent = character.transform;     //add the talent to the character
+        talentClone.GetComponent<TalentScript>().Activate();    //have the talent do it's specific task
     }
 
     private void DestroyPrevious(string equipmentTag)

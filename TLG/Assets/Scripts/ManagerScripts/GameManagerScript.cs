@@ -3,8 +3,8 @@ using System.Collections;
 
 //object that contains the lists of equipment.
 //equipment includes weapons, specials, and talents
-public class GameManagerScript : MonoBehaviour {
-
+public class GameManagerScript : MonoBehaviour 
+{
     public GameObject CharacterManager;
 
     //for now, include the specials from unity as a public member.
