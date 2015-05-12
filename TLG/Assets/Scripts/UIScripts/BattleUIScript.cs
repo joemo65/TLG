@@ -25,9 +25,9 @@ public class BattleUIScript : MonoBehaviour
     private GameObject roundManager;                //reference to the round manager.
     private GameObject gameManager;                 //reference to the game manager.
 
-    private string scoreLeaderboard = "CgkIu5vLvc8SEAIQBg";             //key to the score leaderboard.
-    private string roundsSurvivedLeaderboard = "CgkIu5vLvc8SEAIQBw";    //key to the rounds survived leaderboard.
-    private string enemiesVanquishedLeaderboard = "CgkIu5vLvc8SEAIQCA"; //key to the enemies vanquished leaderboard.
+	private string scoreLeaderboard = "CgkI4cnQsY8WEAIQAw";             //key to the score leaderboard.
+	private string roundsSurvivedLeaderboard = "CgkI4cnQsY8WEAIQBQ";    //key to the rounds survived leaderboard.
+	private string enemiesVanquishedLeaderboard = "CgkI4cnQsY8WEAIQBA"; //key to the enemies vanquished leaderboard.
 
 	// Use this for initialization
 	void Start () 
@@ -323,7 +323,10 @@ public class BattleUIScript : MonoBehaviour
     //event handler for the talents button in the options menu.
     public void OnTalentsButtonClick()
     {
+		GameObject canvas = GameObject.Find ("BattleCanvas");
+		canvas.GetComponent<RectTransform>().anchoredPosition = new Vector3 (900, 0, 10);
         talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 10);
+
         //talentsPanel.enabled = true;
         //talentsPanel.SetBool("isHidden", true);
     }
@@ -332,6 +335,7 @@ public class BattleUIScript : MonoBehaviour
     //closes the talents menu
     public void OnTalentsXButtonClick()
     {
+		GameObject.Find ("BattleCanvas").GetComponent<RectTransform> ().anchoredPosition = new Vector3 (0, 0, 10);
         talentsPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(900, 0, 10);
         //talentsPanel.SetBool("isHidden", false);
     }

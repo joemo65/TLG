@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class RoundManagerScript : MonoBehaviour 
@@ -6,7 +6,7 @@ public class RoundManagerScript : MonoBehaviour
     private Achievements achievements;      //contains the achievements to be unlocked
 
     //changing the round number to round six for testing talents.
-    private int roundNumber = 5;//1;
+	private int roundNumber = 1;//5;
 
     //increments the roundnumber
     public void NextRound()
@@ -68,26 +68,26 @@ public class RoundManagerScript : MonoBehaviour
                 Debug.Log("Achievement unlocked!");
             });
         }
-        else if(roundNumber == 10)
-        {
-            Social.ReportProgress(achievements.GetAchievementList()[2].ToString(), 100.0f, (bool success) =>
-            {
-                Debug.Log("Achievement unlocked!");
-            });
-        }
-        else if(roundNumber == 20)
-        {
-            Social.ReportProgress(achievements.GetAchievementList()[3].ToString(), 100.0f, (bool success) =>
-            {
-                Debug.Log("Achievement unlocked!");
-            });
-        }
-        else if(roundNumber == 30)
-        {
-            Social.ReportProgress(achievements.GetAchievementList()[4].ToString(), 100.0f, (bool success) =>
-            {
-                Debug.Log("Achievement unlocked!");
-            });
-        }
+        //else if(roundNumber == 10)
+        //{
+          //  Social.ReportProgress(achievements.GetAchievementList()[2].ToString(), 100.0f, (bool success) =>
+        //    {
+        //        Debug.Log("Achievement unlocked!");
+        //    });
+        //}
+        //else if(roundNumber == 20)
+        //{
+        //    Social.ReportProgress(achievements.GetAchievementList()[3].ToString(), 100.0f, (bool success) =>
+        //    {
+        //        Debug.Log("Achievement unlocked!");
+        //    });
+        //}
+        //else if(roundNumber == 30)
+        //{
+        //    Social.ReportProgress(achievements.GetAchievementList()[4].ToString(), 100.0f, (bool success) =>
+        //    {
+        //        Debug.Log("Achievement unlocked!");
+        //    });
+        //}
     }
 }

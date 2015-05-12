@@ -8,13 +8,14 @@ public class MainMenuUIManagerScript : MonoBehaviour
     void Start()
     {
         PlayGamesPlatform.Activate();
-        Social.localUser.Authenticate((bool success) =>
-        {
-            if(success)
-            {
-                Debug.Log("success");
-            }
-        });
+		if (!Social.localUser.authenticated) {
+						Social.localUser.Authenticate ((bool success) =>
+						{
+								if (success) {
+										Debug.Log ("success");
+								}
+						});
+				}
     }
 
 	public void Play()

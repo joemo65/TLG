@@ -34,7 +34,7 @@ public class CharacterRangeScript : MonoBehaviour
                         rangeWeaponInstance = (GameObject)Instantiate(rangeWeapon, new Vector3(transform.localPosition.x + 5, transform.localPosition.y + 14, 0), Quaternion.Euler(0, 0, 0));
 
                         //shoot it right
-                        rangeWeaponInstance.rigidbody2D.AddForce(new Vector2(speed, 0));
+                        rangeWeaponInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0));
                     }
                 }
                 else
@@ -44,7 +44,7 @@ public class CharacterRangeScript : MonoBehaviour
                         //create a new instance of the range weapon
                         rangeWeaponInstance = (GameObject)Instantiate(rangeWeapon, new Vector3(transform.localPosition.x - 5, transform.localPosition.y + 14, 0), Quaternion.Euler(0, 0, 180f));
                         //shoot it left
-                        rangeWeaponInstance.rigidbody2D.AddForce(new Vector2(-speed, 0));
+                        rangeWeaponInstance.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0));
                     }
                 }
             }

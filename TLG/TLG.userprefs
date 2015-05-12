@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraFollowScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UIScripts\MainMenuUIManagerScript.cs">
     <Files>
-      <File FileName="..\..\Documents\demo\Assets\Scripts\CameraFollow.cs" Line="66" Column="3" />
-      <File FileName="Assets\Scripts\CameraFollowScript.cs" Line="41" Column="3" />
+      <File FileName="Assets\Scripts\UIScripts\BattleUIScript.cs" Line="20" Column="36" />
+      <File FileName="Assets\Scripts\UIScripts\MainMenuUIManagerScript.cs" Line="18" Column="6" />
+      <File FileName="Assets\Scripts\ManagerScripts\RoundManagerScript.cs" Line="88" Column="13" />
+      <File FileName="Assets\Scripts\CameraFollowScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UIScripts\LeaderboardsUIManagerScript.cs" Line="9" Column="67" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
